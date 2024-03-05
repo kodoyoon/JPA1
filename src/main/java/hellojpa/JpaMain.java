@@ -1,8 +1,11 @@
 package hellojpa;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 
-import java.util.List;
+
 
 public class JpaMain {
 
@@ -15,28 +18,17 @@ public class JpaMain {
         tx.begin();
 
         try {
-            //저장
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
 
             Member member = new Member();
             member.setUsername("member1");
-            member.changeTeam(team);
+
             em.persist(member);
 
+            Team team = new Team();
+            team.setName("teamA");
+            team.getMembers().add(member);
 
-
-
-            em.flush();
-            em.clear();
-
-            Team findTeam = em.find(Team.class, team.getId()); //1차 캐시
-            List<Member> members = findTeam.getMembers();
-
-            for(Member m : members) {
-                System.out.println("m = " + m.getUsername());
-            }
+            em.persist(team);
 
             tx.commit();
         } catch (Exception e) {

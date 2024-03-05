@@ -9,10 +9,8 @@ public class Member {
     private Long id;
     @Column(name = "USERNAME")
     private String username;
-    //@Column(name = "TEAM_ID")
-//    private Long teamId;
-    @ManyToOne //연관관계 "다" 쪽이 주인이면 된다.
-    @JoinColumn(name = "TEAM_ID")
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
     private Team team;
 
     public Long getId() {
@@ -31,16 +29,5 @@ public class Member {
         this.username = username;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
-    }
 
-    public Team getTeam() {
-        return team;
-    }
-
-    public void changeTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this);
-    }
 }
