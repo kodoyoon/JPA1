@@ -11,6 +11,8 @@ public class ValueMain {
         Address address2 = new Address("city", "street", "10000");
 
         System.out.println("address1 == address2: " + (address1 == address2));
+        System.out.println("address1 equals address2: " + (address1.equals(address2)));
+        //equals 의 기본은 == 비교
 
 
 
