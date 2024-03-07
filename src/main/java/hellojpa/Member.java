@@ -3,24 +3,20 @@ package hellojpa;
 import jakarta.persistence.*;
 
 @Entity
-public class Member extends BaseEntity {
+public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue
     private Long id;
     @Column(name = "USERNAME")
     private String username;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn
-    private Team team;
 
-    public Team getTeam() {
-        return team;
-    }
+    //기간 Period
+    @Embedded
+    private Period workperiod;
 
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
+    //주소
+    @Embedded
+    private Address homeaddress;
 
     public Long getId() {
         return id;
@@ -38,5 +34,19 @@ public class Member extends BaseEntity {
         this.username = username;
     }
 
+    public Period getWorkperiod() {
+        return workperiod;
+    }
 
+    public void setWorkperiod(Period workperiod) {
+        this.workperiod = workperiod;
+    }
+
+    public Address getHomeaddress() {
+        return homeaddress;
+    }
+
+    public void setHomeaddress(Address homeaddress) {
+        this.homeaddress = homeaddress;
+    }
 }
