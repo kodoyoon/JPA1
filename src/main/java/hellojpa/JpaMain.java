@@ -32,7 +32,7 @@ public class JpaMain {
             member2.setHomeaddress(copyAddress);
             em.persist(member2);
 
-            member.getHomeaddress().setCity("newCity");
+            member.getHomeaddress().setCity("newCity"); //setter 가 없으니까 값을 바꾸는게 불가능
 
             tx.commit();
         } catch (Exception e) {
