@@ -25,14 +25,9 @@ public class JpaMain {
             member.setHomeaddress(address);
             em.persist(member);
 
-          Address copyAddress =   new Address((address.getCity()), address.getStreet(), address.getZipcode());
+            Address newAddress = new Address("NewCity", address.getStreet(), address.getZipcode());
+            member.setHomeaddress(newAddress);
 
-            Member member2 = new Member();
-            member2.setUsername("member2");
-            member2.setHomeaddress(copyAddress);
-            em.persist(member2);
-
-            member.getHomeaddress().setCity("newCity"); //setter 가 없으니까 값을 바꾸는게 불가능
 
             tx.commit();
         } catch (Exception e) {
