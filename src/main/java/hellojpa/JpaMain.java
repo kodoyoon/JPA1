@@ -45,6 +45,9 @@ public class JpaMain {
             //통으로 새롭게 해야함 ,
             Address a = findMember.getHomeaddress();
             findMember.setHomeaddress(new Address("newCity", a.getStreet(), a.getZipcode()));
+            //치킨 -> 한식
+            findMember.getFavoriteFoods().remove("치킨");
+            findMember.getFavoriteFoods().add("한식");
 
             tx.commit();
         } catch (Exception e) {
