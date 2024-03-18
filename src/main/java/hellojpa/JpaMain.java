@@ -43,11 +43,13 @@ public class JpaMain {
 // findMember.getHomeaddress().setCity("newCity");
 
             //통으로 새롭게 해야함 ,
-            Address a = findMember.getHomeaddress();
-            findMember.setHomeaddress(new Address("newCity", a.getStreet(), a.getZipcode()));
+//            findMember.getHomeaddress().setCity("newCity");
+//            Address a = findMember.getHomeaddress();
+//            findMember.setHomeaddress(new Address("newCity", a.getStreet(), a.getZipcode()));
+
             //치킨 -> 한식
-            findMember.getFavoriteFoods().remove("치킨");
-            findMember.getFavoriteFoods().add("한식");
+//            findMember.getFavoriteFoods().remove("치킨");
+//            findMember.getFavoriteFoods().add("한식");
 
             //주소변경(old -> new) , 컬렉션들은 대부분 equals 사용
             findMember.getAddressHistory().remove(new Address("old1", "street", "10000"));
