@@ -49,6 +49,14 @@ public class JpaMain {
             findMember.getFavoriteFoods().remove("치킨");
             findMember.getFavoriteFoods().add("한식");
 
+            //주소변경(old -> new) , 컬렉션들은 대부분 equals 사용
+            findMember.getAddressHistory().remove(new Address("old1", "street", "10000"));
+            findMember.getAddressHistory().add(new Address("newCity1", "street", "10000"));
+
+
+
+
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
