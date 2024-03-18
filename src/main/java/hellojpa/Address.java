@@ -31,15 +31,15 @@ public class Address {
         return zipcode;
     }
 
-    private void setCity(String city) { //private 으로 만들어도 수정 불가능
+    public void setCity(String city) { //private 으로 만들어도 수정 불가능
         this.city = city;
     }
 
-    private void setStreet(String street) {
+    public void setStreet(String street) {
         this.street = street;
     }
 
-    private void setZipcode(String zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 

@@ -39,16 +39,12 @@ public class JpaMain {
             System.out.println("========start========");
 
            Member findMember =  em.find(Member.class,member.getId());
+//home -> new
+// findMember.getHomeaddress().setCity("newCity");
 
-            List<Address> addressHistory = findMember.getAddressHistory();
-            for(Address address : addressHistory) {
-                System.out.println("address = " + address.getCity());
-            }
-
-            Set<String> favoriteFoods = findMember.getFavoriteFoods();
-            for(String favoriteFood : favoriteFoods) {
-                System.out.println("favoriteFood = " + favoriteFood);
-            }
+            //통으로 새롭게 해야함 ,
+            Address a = findMember.getHomeaddress();
+            findMember.setHomeaddress(new Address("newCity", a.getStreet(), a.getZipcode()));
 
             tx.commit();
         } catch (Exception e) {
