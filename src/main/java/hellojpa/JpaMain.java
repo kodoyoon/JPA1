@@ -24,6 +24,8 @@ public class JpaMain {
             Member member = new Member();
             member.setUsername("member1");
             member.setHomeaddress(new Address("homecity" ,"street" ,"10000"));
+
+            //단순할때만 컬렉션 사용
             member.getFavoriteFoods().add("치킨");
             member.getFavoriteFoods().add("피자");
             member.getFavoriteFoods().add("족발");
