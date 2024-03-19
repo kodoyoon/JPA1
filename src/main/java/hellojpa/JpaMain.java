@@ -11,7 +11,7 @@ import jakarta.persistence.criteria.Root;
 import java.util.List;
 import java.util.Set;
 
-import static java.lang.ScopedValue.where;
+
 
 
 public class JpaMain {
