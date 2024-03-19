@@ -25,11 +25,18 @@ public class JpaMain {
         tx.begin();
 
         try {
+            Member member= new Member();
+            member.setUsername("member1");
+            em.persist(member);
 
-            em.createNativeQuery("select MEMBER_ID, city, street, zipcode ,USERNAME from MEMBER")
+            //flush -> commit, query
+
+         List<Member> resultList =  em.createNativeQuery("select MEMBER_ID, city, street, zipcode ,USERNAME from MEMBER",Member.class)
                     .getResultList();
 
-
+            for (Member member1 : resultList) {
+                System.out.println("member1 = " + member1);
+            }
 
 
             tx.commit();
