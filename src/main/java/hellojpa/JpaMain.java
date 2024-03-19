@@ -26,9 +26,9 @@ public class JpaMain {
             //결과 0
             //dbconn.excuteQuery("select * from member");
 
-            for (Member member1 : resultList) {
-                System.out.println("member1 = " + member1);
-            }
+//            for (Member member1 : resultList) {
+//                System.out.println("member1 = " + member1);
+//            }
 
             tx.commit();
         } catch (Exception e) {
